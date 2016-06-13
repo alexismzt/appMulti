@@ -1,0 +1,25 @@
+extends ./layout.jade
+block contenido
+    .container
+        .row
+            form(action="/singup" method="POST" class="col s12")
+                .row
+                    .row
+                        .input-field.col.s4
+                            label(for="nombre") Nombre
+                            input(id="nombre" type="text" name="nombre" class="validate")
+                        .input-field.col.s4
+                            label(for="usuario") Usuario o Correo Electronico
+                            input(id="usuario" type="text" name="usuario" class="validate")
+                    .row
+                        .input-field.col.s4
+                            label(for="password") Password
+                            input(id="password" type="password" name="password" class="validate")
+                        .input-field.col.s4
+                            label(for="repassword") Confirmar Password
+                            input(id="repassword" type="password" name="repassword" class="validate")
+                .row.top-space
+                    .input-field.col.s3
+                        input(type="submit" value="Registrar" class="btn btn-info")
+                    .input-field.col.s3
+                            a(href="/") Ya tengo cuenta

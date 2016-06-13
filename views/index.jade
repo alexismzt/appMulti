@@ -1,0 +1,18 @@
+extends ./layout.jade
+block contenido
+    p Inicio de la Pagina
+    .container
+        .row
+            form(action="/login" method="POST" class="col s12")
+                .row
+                    .input-field.col.s3
+                        label(for="usuario") Usuario o Correo Electronico
+                        input(placeholder="usuario@email.com" id="usuario" type="text" name="usuario" class="validate")
+                    .input-field.col.s3
+                        label(for="password") Password
+                        input(id="password" type="password" name="password" class="validate")
+                .row.top-space
+                    .input-field.col.s3
+                        input(type="submit" value="Inciar Sesion" class="btn btn-info")
+                    .input-field.col.s3
+                            a(href="/singup") No tengo cuenta

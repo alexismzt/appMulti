@@ -1,0 +1,29 @@
+extends ../layout.jade
+block contenido
+    header#header.page-topbar
+      // start header nav
+      .navbar-fixed
+        nav.navbar-color.red.darken-4
+          .nav-wrapper
+            ul.left
+              li
+                h1.logo-wrapper
+                  a.brand-logo(href='/app')
+                    img(src='#', alt='Multiversidad Latinoamericana')
+                  span.logo-text Multiversidad Logo
+            ul.right.hide-on-med-and-down
+              li
+                a.waves-effect.waves-block.waves-light.toggle-fullscreen(href='')
+                  i.mdi-action-settings-overscan Full 
+    #main
+      .wrapper
+        aside#left-sidebar-nav
+          ul#slide-out.side-nav.fixed.leftside-navigation.ps-container.ps-active-y
+            li.bold
+              a(href='#')
+                i.samll.icoSub.material-icons home
+                | DashBoard
+            li.bold
+              a(href='#') Cobranza
+            li.bold
+              a(href='#') Reportes

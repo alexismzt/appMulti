@@ -1,0 +1,120 @@
+ul
+  &.side-nav
+    &.leftside-navigation
+      top 64px
+      overflow hidden
+      hr
+        display block
+        height 1px
+        border 0
+        border-top 1px solid #e0e0e0
+        margin 1em 0
+        padding 0
+      li
+        line-height 44px
+        
+        &:hover
+          background-color rgba(0,0,0,0.04)
+        &.active
+          background-color rgba(0,0,0,0.04)
+        a
+          line-height 44px
+          height 44px;          
+          font-size 14px
+          font-weight 400
+        &.user-details
+          background url("/img/user-bg.jpg") no-repeat center center
+          -webkit-background-size cover
+          -moz-background-size cover
+          -o-background-size cover
+          background-size cover
+          margin-bottom 15px
+          padding 15px 0 0 15px
+          #profile-dropdown
+            a
+              padding 8px 15px
+      .profile-btn
+        margin 0
+        text-transform capitalize
+        padding 0
+        text-shadow 1px 1px 1px #444
+        font-size 15px
+      ul
+        &.collapsible-accordion
+          background-color #fff
+    li
+      padding 0
+    .collapsible-header
+      margin 0
+
+.menu-sidebar-collapse
+  margin 0 10px
+  i
+    line-height 36px !important
+
+.bold
+  & > a
+    font-weight bold
+
+h1
+  &.logo-wrapper
+    margin 0
+  span
+    &.logo-text
+      display none
+
+header
+  .brand-logo
+    margin 2px 2px 2px 2px
+    padding 1px 1px
+    img
+      width 55px
+
+.sidebar-collapse
+  position absolute
+  left -170px
+  top -45px
+  
+#left-sidebar-nav
+  position fixed
+  width 100px
+  left 180px
+  z-index 999
+  height auto
+
+#main
+  padding-left 240px
+
+#chart-dashboard
+  padding-top 12px
+  .card
+    overflow hidden
+    .card-content
+      padding 10px 14px
+
+#content
+  .header-search-wrapper
+    width 100%
+    margin 0 auto
+    height 40px
+    display inline-block
+    position relative
+  .container
+    .row
+      margin-bottom 0
+
+.icoSub
+  vertical-align sub
+  
+@media only screen and (min-width: 601px)
+  .container
+    width 98%
+
+@media only screen and (min-width: 993px)
+  .container
+    width 98%
+
+@media only screen and (max-width: 993px)
+  #main
+    padding-left 0
+    
