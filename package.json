@@ -1,0 +1,19 @@
+{
+  "name": "appmultiversidad",
+  "version": "0.0.1",
+  "description": "App para multiversidad",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/alexismzt/AppMultiversidad.git"
+  },
+  "author": "alexismzt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/alexismzt/AppMultiversidad/issues"
+  },
+  "homepage": "https://gitlab.com/alexismzt/AppMultiversidad#README"
+}
