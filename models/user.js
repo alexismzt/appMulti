@@ -1,8 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost/Appmulti");
-
 var sexo_vals = ["M", "F"];
 
 var email_match = [/^\w+([\.-]?\w+)*@\w([\.-]?\w+)*(\.\w{2,3})+$/,"Coloca un email valido"]

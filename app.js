@@ -1,15 +1,18 @@
 var express = require("express");
 var bodyparser = require("body-parser");
 var cookieSession = require("cookie-session");
-
-////////////////////////////
-///Models
-var User = require("./models/user").User;
+var mongoose = require("mongoose");
 
 ////////////////////////////////
 //middlewares
 var session_middleware = require("./middlewares/sessions");
+mongoose.connect("mongodb://localhost/Appmulti");
 
+////////////////////////////
+///Models
+var User = require("./models/user").User;
+var Estado = require("./models/estados").Estado;
+var Ciudad = require("./models/ciudades").Ciudad;
 
 ///////////////////////////////
 //Routing
@@ -39,6 +42,25 @@ console.log("Inicializando URLS");
 //Index of Site
 app.get("/", function(req, res){
 	res.render("index");
+});
+
+app.get("/estados", function(req, res){
+    
+    Estado.find(function(err, estados){
+        res.send(estados);
+    });
+     
+});
+
+app.get("/ciudades", function(req, res){
+    
+    Ciudad.find(function(err, ciudades){
+        Estado.populate(ciudades, {path: 'idstate'},
+            function(err, ciudades){
+                res.status(200).send(ciudades);
+            })
+    });
+     
 });
 
 
