@@ -8,17 +8,19 @@ html(lang='en')
     script(src='http://code.jquery.com/ui/1.11.4/jquery-ui.js')
     // Compiled and minified CSS
     link(rel='stylesheet', href='http://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css')
-    link(rel='stylesheet', href='css/style.css')
     link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
     // Compiled and minified JavaScript
     script(src='http://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js')
-    script(type='text/javascript', src='/satic/js/raphael-min.js')
-    script(type='text/javascript', src='/static/mapsstatic/paths_mexico.js')
-    link(rel='stylesheet', type='text/css', media='all', href='mapsstatic/mapa_mexico.css')
-    script(type='text/javascript', src='/static/mapsstatic/init_mexico.js')
+    //script(type='text/javascript', src='/satic/js/raphael-min.js')
+    //script(type='text/javascript', src='/static/mapsstatic/paths_mexico.js')
+    //link(rel='stylesheet', type='text/css', media='all', href='mapsstatic/mapa_mexico.css')
+    //script(type='text/javascript', src='/static/mapsstatic/init_mexico.js')
+    script(type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js")
+    script(type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js")
+    script(type='text/javascript', src='/static/js/multiapp.js')
     link(rel='stylesheet', type='text/css', media='all', href='/static/css/app.css')
-    link(rel='stylesheet', type='text/css', media='all', href='/static/css/style.css')      
-  body
+    //link(rel='stylesheet', type='text/css', media='all', href='/static/css/style.css')      
+  body(ng-app="AppMultiversidad")
     block contenido
     #dialogo
     script.

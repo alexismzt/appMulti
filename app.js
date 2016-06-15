@@ -2,6 +2,8 @@ var express = require("express");
 var bodyparser = require("body-parser");
 var cookieSession = require("cookie-session");
 var mongoose = require("mongoose");
+var path = require('path');
+var http = require('http');
 
 ////////////////////////////////
 //middlewares
@@ -11,16 +13,21 @@ mongoose.connect("mongodb://localhost/Appmulti");
 ////////////////////////////
 ///Models
 var User = require("./models/user").User;
-var Estado = require("./models/estados").Estado;
-var Ciudad = require("./models/ciudades").Ciudad;
 
 ///////////////////////////////
 //Routing
 var router_app = require("./routes");
+var router_api = require("./routes_api");
+
+var PORT = 8093;
 
 /*Begin InitSite*/
 console.log("Inicializando AppMultiversidad...")
 var app = express();
+
+app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname + '/views'));
+app.set("view engine", "pug");
 
 app.use("/static",express.static('static')); //archivos estaticos
 
@@ -31,7 +38,6 @@ app.use(cookieSession({
     keys: ["llave1", "llave2"]}
     )); //Cookies habilitadas
 
-app.set("view engine", "jade");
 /*End InitSite*/
 
 console.log("Inicializando URLS");
@@ -40,29 +46,10 @@ console.log("Inicializando URLS");
 // Urls Views
 
 //Index of Site
-app.get("/", function(req, res){
-	res.render("index");
+var Ciudad = require("./models/ciudades").Ciudad;
+app.get("/", function(req, res){    
+    res.render("index");
 });
-
-app.get("/estados", function(req, res){
-    
-    Estado.find(function(err, estados){
-        res.send(estados);
-    });
-     
-});
-
-app.get("/ciudades", function(req, res){
-    
-    Ciudad.find(function(err, ciudades){
-        Estado.populate(ciudades, {path: 'idstate'},
-            function(err, ciudades){
-                res.status(200).send(ciudades);
-            })
-    });
-     
-});
-
 
 //Register new user 
 //--display form
@@ -101,8 +88,7 @@ app.post("/login", function(req, res){
         {
             if(user){
                 req.session.user_id = user._id;
-                res.send(user);
-                //res.redirect("/app");
+                res.redirect("/app");
             }
             else
             {
@@ -118,6 +104,10 @@ app.use("/app", session_middleware);//middleware para sesiones
 
 console.log("Inicializando routing...");
 app.use("/app", router_app);
+app.use("/api", router_api);
 
-console.log("DONE!! \r\nEsuchando peticiones en el puerto 8090");
-app.listen(8090);
+console.log("DONE!! \r\nEsuchando peticiones en el puerto:" + app.get('port'));
+//app.listen(PORT);
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});

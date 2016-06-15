@@ -1,0 +1,7 @@
+#estados
+    p estamos en pug partial    
+    div(ng-controller='EstadoListController')
+        p hay {{estados.length}} estados
+        div(ng-repeat = 'estado in estados')
+            h4 {{estado.estado}}
+            h5 {{estado.clave}}
